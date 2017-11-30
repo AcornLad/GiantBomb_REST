@@ -4,7 +4,8 @@
   "description": "A REST API that retrieves data from the GiantBomb API, to preserve my GiantBomb key in my practice Single-Page Apps",
   "main": "server.js",
   "scripts": {
-    "test": "dev"
+    "dev": "server.js",
+    "test": "server.js"
   },
   "repository": {
     "type": "git",
