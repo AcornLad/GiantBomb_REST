@@ -1,0 +1,25 @@
+{
+  "name": "giantbomb_rest",
+  "version": "1.0.0",
+  "description": "A REST API that retrieves data from the GiantBomb API, to preserve my GiantBomb key in my practice Single-Page Apps",
+  "main": "server.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SushiRabbit/GiantBomb_REST.git"
+  },
+  "author": "Conrad Cash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SushiRabbit/GiantBomb_REST/issues"
+  },
+  "homepage": "https://github.com/SushiRabbit/GiantBomb_REST#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
