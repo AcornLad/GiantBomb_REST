@@ -1,16 +1,26 @@
 var express = require('express');
 var jquery = require('jquery');
-var config = require('config.js');
-
+var config = require('./config.js');
+var app = express();
 var GIANTBOMB_KEY = config.MY_KEY;
 /*
 Config.js contents:
 var config = {
 	MY_KEY : 'key string here'
 }
-
-
 */
+
+app.get('/', function(req, res){
+	res.send('Hello World');
+});
+
+app.listen(3000, function(){
+	console.log('App is listening on Port 3000')
+});
+
+
+
+
 //TODO: Set up Express routes and whatnot, take a URL query from GiantBomb_JS and forward it to GiantBomb API; forward GiantBomb API's response to GiantBomb_JS
 /*
 Upon clicking 'Go':
@@ -22,7 +32,7 @@ Two options now:
 res.send the json from GiantBomb, then parse in client https://stackoverflow.com/questions/45128956/sending-json-response-from-nodejs-express
 Render the whole page and send it??
 
- 
+
 */
 
 
