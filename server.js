@@ -14,8 +14,25 @@ app.get('/', function(req, res){
 	res.send('Hello World');
 });
 
-app.post('/', function(req, res){
+/*TEST POST REQUEST: http://localhost:3000/GiantBomb/original_release_date:1993-11-28 00:00:00*/
+app.post('/GiantBomb/:inputdate', function(req, res){
 	/*TODO: Take arguments and query GiantBomb API, then return results*/
+	$.ajax({
+    url: 'http://www.giantbomb.com/api/games/',
+    type: 'GET',
+    dataType: 'jsonp',
+    jsonp: 'json_callback',
+    data:{
+      api_key: '5e57f67f91f9ea33558f01628a3d393ea9ebfd8a',
+      filter: req.params.inputdate,
+      field_list: 'name,site_detail_url',
+      format: 'jsonp'
+    },
+    success: function(data){
+      console.log('success',data);
+    }
+	});
+
 });
 
 app.listen(3000, function(){
