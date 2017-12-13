@@ -2,6 +2,7 @@ var express = require('express');
 var jquery = require('jquery');
 var config = require('./config.js');
 var app = express();
+var $ = require('jquery');
 var GIANTBOMB_KEY = config.MY_KEY;
 /*
 Config.js contents:
@@ -14,9 +15,10 @@ app.get('/', function(req, res){
 	res.send('Hello World');
 });
 
+
 /*TEST POST REQUEST: http://localhost:3000/GiantBomb/original_release_date:1993-11-28 00:00:00*/
 app.post('/GiantBomb/:inputdate', function(req, res){
-	/*TODO: Take arguments and query GiantBomb API, then return results*/
+	/*TODO: Take arguments and query GiantBomb API, then return results. Transpose JQuery AJAX to the http request module; better for Node than emulating a window for JQuery*/
 	$.ajax({
     url: 'http://www.giantbomb.com/api/games/',
     type: 'GET',
