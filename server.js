@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 var jquery = require('jquery');
 var config = require('./config.js');
 var app = express();
@@ -16,10 +17,10 @@ app.get('/', function(req, res){
 });
 
 
-/*TEST POST REQUEST: http://localhost:3000/GiantBomb/original_release_date:1993-11-28 00:00:00*/
+/*TEST POST REQUEST: http://localhost:3000/GiantBomb/original_release_date:1993-11-28%2011:11:11*/
 app.post('/GiantBomb/:inputdate', function(req, res){
 	/*TODO: Take arguments and query GiantBomb API, then return results. Transpose JQuery AJAX to the http request module; better for Node than emulating a window for JQuery*/
-	$.ajax({
+	/*$.ajax({
     url: 'http://www.giantbomb.com/api/games/',
     type: 'GET',
     dataType: 'jsonp',
@@ -34,7 +35,25 @@ app.post('/GiantBomb/:inputdate', function(req, res){
       console.log('success',data);
     }
 	});
-	res.send(data);
+	res.send(data);*/
+	var bombQuery = encodeURIComponent(req.params.inputdate);
+	var options = {
+		host: 'giantbomb.com',
+		port: 80,
+		path: bombQuery,
+		json: true
+	};
+	http.get(options, function(resp){
+		resp.on('data', function(chunk){
+			//Do something with chunk
+			console.log(chunk);
+			var jsonObject = JSON.parse(chunk);
+			console.log(jsonObject);
+		});
+	}).on("error", function(e){
+		console.log("Got error: " + e.message);
+	});
+
 });
 
 app.listen(3000, function(){
