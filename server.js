@@ -32,7 +32,7 @@ app.post('/GiantBomb/:inputdate', function(req, res){
       console.log('success',data);
     }
 	});
-
+	res.send(data);
 });
 
 app.listen(3000, function(){
