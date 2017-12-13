@@ -14,6 +14,10 @@ app.get('/', function(req, res){
 	res.send('Hello World');
 });
 
+app.post('/', function(req, res){
+	/*TODO: Take arguments and query GiantBomb API, then return results*/
+});
+
 app.listen(3000, function(){
 	console.log('App is listening on Port 3000')
 });

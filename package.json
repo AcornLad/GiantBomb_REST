@@ -4,7 +4,7 @@
   "description": "A REST API that retrieves data from the GiantBomb API, to preserve my GiantBomb key in my practice Single-Page Apps",
   "main": "server.js",
   "scripts": {
-    "dev": "server.js",
+    "dev": "nodemon server.js",
     "test": "server.js"
   },
   "repository": {
