@@ -37,13 +37,13 @@ app.post('/GiantBomb/:inputdate', function(req, res){
 	});
 	res.send(data);*/
 	var bombQuery = encodeURIComponent(req.params.inputdate);
-	var options = {
-		host: 'giantbomb.com',
-		port: 80,
-		path: bombQuery,
-		json: true
+	var request = {
+		'host': 'giantbomb.com',
+		'accept': 'application/json',
+		'api_key': '5e57f67f91f9ea33558f01628a3d393ea9ebfd8a',
+		'path': bombQuery
 	};
-	http.get(options, function(resp){
+	http.get(request, function(resp){
 		resp.on('data', function(chunk){
 			//Do something with chunk
 			console.log(chunk);
